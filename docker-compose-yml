@@ -4,6 +4,11 @@ services:
     image: mysql:5.7
     container_name: db
     restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: p@ssw0rd
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: p@ssw0rd
     ports:
       - "3306:3306"
     volumes:
@@ -18,7 +23,7 @@ services:
       WORDPRESS_DB_HOST: db:3306
       WORDPRESS_DB_NAME: wordpress
       WORDPRESS_DB_USER: wordpress
-      WORDPRESS_DB_PASSWORD: wordpress_password
+      WORDPRESS_DB_PASSWORD: p@ssw0rd
     depends_on:
       - db
     volumes:
